@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  syntax-check:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check (injector)
+        run: node --check codex-bg.mjs
+      - name: Syntax check (watchdog)
+        run: node --check codex-bg-watchdog.mjs
+      - name: Syntax check (stuck detector)
+        run: node --check codex-bg-stuck.mjs
+      - name: Syntax check (page UI)
+        run: node --check ui-inject.js
+      - name: Syntax check (WebCodecs player)
+        run: node --check wc-player.js
+      - name: Unit test (stuck detector)
+        run: node _test-stuck.mjs

@@ -1,0 +1,26 @@
+# 运行时产物，不进仓库
+injector.log
+launcher.log
+.injector.lock
+.watchdog.lock
+
+# Wallpaper Engine 工坊抽取缓存（可达数百 MB，随用随生成）
+.we-pkg-cache/
+backup/
+
+# 开发期临时产物 / 截图
+_black-bar-current.png
+_menu-before.png
+_sidebar-opacity-ui.png
+verify-we-video*.png
+Exp-*.png
+
+# graphflow / node
+.graphflow/
+.graphflow-cache/
+graphflow-out/
+node_modules/
+
+# 系统垃圾
+Thumbs.db
+desktop.ini

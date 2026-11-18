@@ -1,0 +1,10 @@
+# vbs 有 UTF-16LE（launch-codex-bg.vbs）和 ASCII（看门狗自启）两种：都按字节原样保存，
+# 禁止 git 做行尾/编码转换，否则 WSH 会把中文行切错。
+*.vbs -text
+*.ps1 -text
+*.mjs text eol=lf
+*.js  text eol=lf
+*.md  text
+*.json text
+*.yml text eol=lf
+*.png binary
